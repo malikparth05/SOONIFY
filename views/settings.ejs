@@ -1,0 +1,79 @@
+<%- include('partials/head') %>
+<%- include('partials/sidebar', { currentPage: 'settings' }) %>
+
+<main class="main-content">
+    
+    <%- include('partials/header-title', { title: title, subtitle: subtitle }) %>
+
+    <div class="settings-panels-container">
+        <section id="profile" class="settings-panel">
+            <h2 class="panel-heading">My Profile</h2>
+            
+            <div class="profile-pic-area">
+                <div class="profile-pic">
+                    <span class="material-icons">person</span>
+                </div>
+                <div class="upload-btn-group">
+                    <button class="btn btn-primary">Upload New Photo</button>
+                    <button class="btn btn-danger">Remove</button>
+                </div>
+            </div>
+            <form>
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" value="Aahana" class="input-field">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" value="aahana_u@gmail.com" class="input-field" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="user-id">Soonify User ID</label>
+                    <input type="text" id="user-id" value="Sfy-4287-U" class="input-field" disabled>
+                </div>
+                <button type="submit" class="btn btn-submit">Save Profile Changes</button>
+            </form>
+        </section>
+
+        <section id="security" class="settings-panel">
+            <h2 class="panel-heading">Security</h2>
+            <div class="form-group">
+                <label for="current-password">Current Password</label>
+                <input type="password" id="current-password" placeholder="Enter current password" class="input-field">
+            </div>
+            <div class="form-group">
+                <label for="new-password">New Password</label>
+                <input type="password" id="new-password" placeholder="Enter new password" class="input-field">
+            </div>
+            <div class="toggle-container">
+                <span>Two-Factor Authentication (2FA)</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <button type="submit" class="btn btn-submit">Update Security</button>
+        </section>
+        
+        <section id="notifications" class="settings-panel">
+            <h2 class="panel-heading">Notifications</h2>
+            <div class="toggle-container">
+                <span>Email notifications for updates</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="toggle-container">
+                <span>Mobile push alerts</span>
+                <label class="toggle-switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <button type="submit" class="btn btn-submit">Save Notifications</button>
+        </section>
+    </div>
+</main>
+
+<%- include('partials/footer', { currentPage: 'settings' }) %>

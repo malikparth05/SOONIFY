@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soonify Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0D1117; 
+            color: #ffffff; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .login-card {
+            background-color: #161B22; 
+            border-radius: 16px;
+            padding: 40px;
+            width: 100%;
+            max-width: 900px; 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .logo-and-name {
+            display: flex;
+            align-items: flex-start; 
+            justify-content: center; 
+            margin-bottom: 0; 
+        }
+
+        .logo-placeholder {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px; 
+            height: 50px; 
+            margin: 0; 
+            margin-right: 15px; 
+            flex-shrink: 0; 
+        }
+        
+        .logo-placeholder img {
+            width: 100px; 
+            height: 100px;
+            border-radius: 50%; 
+            object-fit: cover; 
+        }
+        
+        .title-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; 
+        }
+
+        .app-name {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0;
+            line-height: 1; 
+        }
+
+        .tagline {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #cccccc;
+            margin-top: 5px; 
+        }
+
+        .page-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 20px;
+        }
+
+        .content-area {
+            display: flex;
+            gap: 60px; 
+            align-items: flex-start;
+        }
+
+        .local-login {
+            flex: 1;
+            border-right: 1px solid rgba(255, 255, 255, 0.15); 
+            padding-right: 30px; 
+            margin-right: -30px; 
+        }
+
+        .social-login {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding-top: 40px; 
+            padding-bottom: 20px; 
+            padding-left: 30px; 
+            margin-left: -30px; 
+        }
+        
+        .separator-line { display: none; }
+        
+        .form-group { margin-bottom: 20px; }
+
+        label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 400;
+            margin-bottom: 5px;
+            color: #cccccc;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 15px 20px;
+            background-color: #393d53; 
+            border: none;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 300;
+            transition: background-color 0.3s, box-shadow 0.3s; 
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            background-color: #4c5269;
+            box-shadow: 0 0 0 2px #4a89f9; 
+        }
+        
+        input[type="text"]:hover,
+        input[type="password"]:hover {
+            background-color: #4c5269;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 15px;
+            background-color: #58A6FF; 
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s, box-shadow 0.3s; 
+            margin-top: 10px;
+        }
+
+        .input-error {
+            color: #FF5252; 
+            font-size: 0.8rem;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        input[type="text"].error,
+        input[type="password"].error {
+            border: 1px solid red !important;
+        }
+
+        .btn-login:hover {
+            background-color: #388BFD;
+            transform: translateY(-2px); 
+            box-shadow: 0 6px 12px rgba(74, 137, 249, 0.4); 
+        }
+
+        .btn-login:active {
+            transform: translateY(0);
+            box-shadow: none;
+        }
+
+        .forgot-password {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .forgot-password:hover { color: #4a89f9; }
+
+        .social-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 15px;
+            background-color: #272d42; 
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 400;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s, border-color 0.3s, transform 0.3s, box-shadow 0.3s; 
+        }
+
+        .social-button:hover {
+            background-color: #30374e;
+            border-color: #4a89f9;
+            transform: translateY(-2px); 
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); 
+        }
+
+        .social-icon {
+            font-size: 1.2rem;
+            margin-right: 15px;
+            display: block;
+            flex-shrink: 0;
+        }
+        
+        .google .social-icon { color: #4285f4; }
+
+        .ms-logo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 20px; 
+            height: 20px;
+            gap: 1.5px; 
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .ms-logo .sq { width: 100%; height: 100%; display: block; }
+        .ms-logo .sq:nth-child(1) { background-color: #F25022; } 
+        .ms-logo .sq:nth-child(2) { background-color: #7FBA00; } 
+        .ms-logo .sq:nth-child(3) { background-color: #00A4EF; } 
+        .ms-logo .sq:nth-child(4) { background-color: #FFB900; } 
+        .microsoft .social-icon { display: none; } 
+        .apple .social-icon { color: #ffffff; }
+
+        @media (max-width: 768px) {
+            .content-area { flex-direction: column; gap: 0; }
+            .local-login { border-right: none; padding-right: 0; margin-right: 0; }
+            .social-login { padding-top: 0; padding-left: 0; margin-left: 0; margin-top: 20px; }
+            .separator-line { display: block; height: 1px; background-color: rgba(255, 255, 255, 0.1); width: 100%; margin: 20px 0; }
+            .header { margin-bottom: 20px; }
+            .app-name { font-size: 2.5rem; }
+            .page-title { font-size: 1.5rem; }
+            .login-card { padding: 30px; max-width: 100%; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="login-card">
+        
+        <div class="header">
+            <div class="logo-and-name">
+                <div class="logo-placeholder">
+                    <img src="/images/soonify.png" alt="Soonify Logo" onerror="this.src='https://placehold.co/50x50/393d53/cccccc?text=LOGO_FAIL'">
+                </div>
+                
+                <div class="title-group">
+                    <div class="app-name">Soonify</div>
+                    <div class="tagline">Stay ahead. Stay on track</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-title">Login page</div>
+
+        <div class="content-area">
+            
+            <div class="local-login">
+                <form>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" placeholder="Enter your username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="btn-login">Login</button>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </form>
+            </div>
+
+            <div class="separator-line"></div>
+
+            <div class="social-login">
+                <a href="#" class="social-button google">
+                    <i class="social-icon fab fa-google"></i>
+                    Continue with Google
+                </a>
+                <a href="#" class="social-button microsoft">
+                    <span class="ms-logo">
+                        <span class="sq"></span>
+                        <span class="sq"></span>
+                        <span class="sq"></span>
+                        <span class="sq"></span>
+                    </span>
+                    <i class="social-icon fab fa-microsoft"></i>
+                    Continue with Microsoft
+                </a>
+                <a href="#" class="social-button apple">
+                    <i class="social-icon fab fa-apple"></i>
+                    Continue with Apple
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="/js/util.js"></script> <script src="/js/login.js"></script>
+</body>
+</html>

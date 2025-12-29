@@ -1,0 +1,6 @@
+{
+  "spaces": [
+    {"id":"sp1","title":"Project Soonify","description":"Main project space","members":[{"name":"Riya","avatar":"https://api.dicebear.com/7.x/pixel-art/svg?seed=riya"}]},
+    {"id":"sp2","title":"Design Hub","description":"UI/UX team"}
+  ]
+}

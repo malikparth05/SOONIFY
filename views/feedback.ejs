@@ -1,0 +1,71 @@
+<%- include('partials/head') %>
+<%- include('partials/sidebar', { currentPage: 'feedback' }) %>
+
+<main class="main-content">
+    <%- include('partials/header-title', { title: title, subtitle: subtitle }) %>
+
+    <div class="search-bar" style="max-width: none; margin-bottom: 40px;">
+        <span class="material-icons">search</span>
+        <input type="text" placeholder="Search help articles...">
+    </div>
+    
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="faq-grid">
+        <div class="faq-item">
+            <h4>How do I invite members to an event?</h4>
+            <p>Navigate to the event details page and click the 'Invite' button at the top right.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Can I sync events to Google Calendar?</h4>
+            <p>Yes, all scheduled events can be seamlessly synced with any external calendar service.</p>
+        </div>
+        <div class="faq-item">
+            <h4>What is the limit for attendees?</h4>
+            <p>Free accounts allow up to 50 attendees. Premium tiers offer unlimited invites.</p>
+        </div>
+        <div class="faq-item">
+            <h4>How do I delete an event?</h4>
+            <p>Find the event, open the options menu (...), and select 'Delete Event'.</p>
+        </div>
+    </div>
+
+    <h2 class="section-title">Contact Us</h2>
+    <form class="feedback-form">
+        <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" placeholder="you@example.com">
+        </div>
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Write your feedback or question here..."></textarea>
+        </div>
+        <div class="button-group-end">
+            <button type="submit" class="btn btn-submit">Submit Feedback</button>
+        </div>
+    </form>
+    
+    <h2 class="section-title">About Us</h2>
+    <div class="founder-card">
+        <img src="https://api.dicebear.com/7.x/pixel-art/svg?seed=Annu" alt="Founder 1 Avatar">
+        <div class="founder-info">
+            <h4>Annu Hooda</h4>
+            <p>CEO & Product Visionary. Focused on creating seamless scheduling experiences.</p>
+        </div>
+    </div>
+    <div class="founder-card">
+        <img src="https://api.dicebear.com/7.x/pixel-art/svg?seed=Ananya" alt="Founder 2 Avatar">
+        <div class="founder-info">
+            <h4>Ananya Upadhyay</h4>
+            <p>CTO & Engineering Lead. Dedicated to building scalable and secure infrastructure.</p>
+        </div>
+    </div>
+        <div class="founder-card">
+        <img src="https://api.dicebear.com/7.x/pixel-art/svg?seed=Parth" alt="Founder 3 Avatar">
+        <div class="founder-info">
+            <h4>Parth Malik</h4>
+            <p>CFO & Operations Head. Manages strategy and financial growth for Soonify.</p>
+        </div>
+    </div>
+</main>
+
+<%- include('partials/footer', { currentPage: 'feedback' }) %>

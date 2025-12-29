@@ -1,0 +1,44 @@
+<aside class="sidebar">
+    <div class="logo">
+        <img src="/images/soonify.png" alt="Soonify Logo" class="logo-image">
+        Soonify
+    </div>
+    <nav class="main-nav">
+        <a href="/dashboard" class="nav-item <%= (currentPage === 'index') ? 'active' : '' %>">
+    <span class="material-icons">dashboard</span>
+    Dashboard
+</a>
+        <a href="/add" class="nav-item <%= (currentPage === 'add') ? 'active' : '' %>">
+            <span class="material-icons">event</span>
+            Add Event
+        </a>
+        <a href="/shared" class="nav-item <%= (currentPage === 'shared') ? 'active' : '' %>">
+            <span class="material-icons">group</span>
+            Shared Reminders
+        </a>
+        <a href="/colabration" class="nav-item <%= (currentPage === 'colabration') ? 'active' : '' %>">
+            <span class="material-icons">people_alt</span>
+            Collaboration Mode
+        </a>
+        <a href="/feedback" class="nav-item <%= (currentPage === 'feedback') ? 'active' : '' %>">
+            <span class="material-icons">feedback</span>
+            Feedback
+        </a>
+    </nav>
+
+    <div class="calendar-section">
+        <h3>Calendar View</h3>
+        <div class="calendar-grid">
+            <div class="calendar-header">
+                <span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span><span>Su</span>
+            </div>
+            <div class="calendar-days" id="sidebar-calendar-days">
+                </div>
+        </div>
+    </div>
+
+    <a href="/settings" class="settings <%= (currentPage === 'settings') ? 'active' : '' %>">
+        <span class="material-icons">settings</span>
+        Settings
+    </a>
+</aside>

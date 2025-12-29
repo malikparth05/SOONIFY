@@ -1,0 +1,21 @@
+{
+  "name": "soonify-project",
+  "version": "1.0.0",
+  "description": "Event countdown and management dashboard",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.2.3",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "mongodb": "^7.0.0",
+    "mongoose": "^8.20.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

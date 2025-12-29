@@ -1,0 +1,42 @@
+{
+  "team": [
+    {
+      "name": "Ananya",
+      "username": "@anuu_d",
+      "email": "anaji@example.com",
+      "role": "Designer",
+      "status": "online",
+      "avatar": "https://api.dicebear.com/7.x/pixel-art/svg?seed=Anaji",
+      "lastActive": "2025-10-27T14:30:00Z"
+    },
+    {
+      "name": "Aman",
+      "username": "@ananya_u",
+      "email": "khushi@example.com",
+      "role": "Frontend Developer",
+      "status": "online",
+      "avatar": "https://api.dicebear.com/7.x/pixel-art/svg?seed=Khushi",
+      "lastActive": "2025-10-27T10:00:00Z"
+    },
+    {
+      "name": "Atul",
+      "username": "@alex_r",
+      "email": "alex@example.com",
+      "role": "Backend Developer",
+      "status": "offline",
+      "avatar": "https://api.dicebear.com/7.x/pixel-art/svg?seed=Alex",
+      "lastActive": "2025-10-25T18:45:00Z"
+    }
+  ],
+  "project": {
+    "name": "Soonify",
+    "version": "2.0",
+    "createdBy": "@aahana_u",
+    "collaborationMode": true
+  },
+  "settings": {
+    "allowInvites": true,
+    "theme": "dark",
+    "timezone": "Asia/Kolkata"
+  }
+}

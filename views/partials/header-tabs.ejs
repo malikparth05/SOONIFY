@@ -1,0 +1,13 @@
+<header class="header">
+    <div class="tabs">
+        <button class="tab-button <%= (currentPage === 'index') ? 'active' : '' %>" onclick="window.location.href='/dashboard'">All Events</button>
+        <button class="tab-button <%= (currentPage === 'past') ? 'active' : '' %>" onclick="window.location.href='/past'">Past Events</button>
+        <button class="tab-button <%= (currentPage === 'schedule') ? 'active' : '' %>" onclick="window.location.href='/schedule'">Scheduled Events</button>
+    </div>
+    <div class="user-profile">
+        <img src="https://api.dicebear.com/7.x/pixel-art.svg?seed=Aahana" alt="User Avatar" class="avatar">
+        <div class="user-info">
+            <span class="username">@aahana_u</span>
+        </div> 
+    </div>
+</header>

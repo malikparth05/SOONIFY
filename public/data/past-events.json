@@ -1,0 +1,52 @@
+{
+    "user": {
+        "username": "@aahana_u",
+        "avatarSeed": "Aahana"
+    },
+    "navigation": [
+        { "label": "Dashboard", "icon": "dashboard", "href": "index.html", "active": false },
+        { "label": "Add Event", "icon": "event", "href": "add.html", "active": false },
+        { "label": "Shared Reminders", "icon": "group", "href": "shared.html", "active": false },
+        { "label": "Collaboration Mode", "icon": "people_alt", "href": "colabration.html", "active": false },
+        { "label": "Feedback", "icon": "feedback", "href": "feedback.html", "active": false }
+    ],
+    "tabs": [
+        { "label": "All Events", "href": "index.html", "active": false },
+        { "label": "Past Events", "href": "past.html", "active": true },
+        { "label": "Scheduled Events", "href": "schedule.html", "active": false }
+    ],
+    "pastEvents": [
+        {
+            "id": "e101",
+            "title": "Q3 Project Launch",
+            "date": "15 October 2025",
+            "category": "work",
+            "description": "Successfully launched the third quarter product roadmap on time.",
+            "imageRandomSeed": 10
+        },
+        {
+            "id": "e102",
+            "title": "Summer Vacation",
+            "date": "01 June 2025",
+            "category": "personal",
+            "description": "Two weeks of relaxing time off. Visited the mountains with family.",
+            "imageRandomSeed": 11
+        },
+        {
+            "id": "e103",
+            "title": "Mid-term Exams",
+            "date": "20 March 2025",
+            "category": "study",
+            "description": "Completed all mid-term examinations for the semester.",
+            "imageRandomSeed": 12
+        },
+        {
+            "id": "e104",
+            "title": "Annual Check-up",
+            "date": "10 February 2025",
+            "category": "health",
+            "description": "Routine annual medical and dental check-up completed.",
+            "imageRandomSeed": 14
+        }
+    ]
+}

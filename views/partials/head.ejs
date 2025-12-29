@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soonify Dashboard</title>
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <style>
+        .modal-overlay { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0, 0, 0, 0.8); 
+            display: none; 
+            justify-content: center; 
+            align-items: center; 
+            z-index: 1000; 
+        }
+        .modal-box { 
+            background-color: var(--card-bg); 
+            padding: 30px; 
+            border-radius: 8px; 
+            width: 90%; 
+            max-width: 500px; 
+            color: var(--text-primary); 
+            animation: fadeIn 0.3s ease-out; 
+        }
+        .modal-box h3 { 
+            border-bottom: 2px solid var(--accent-blue); 
+            padding-bottom: 10px; 
+            margin-top: 0; 
+            margin-bottom: 20px; 
+            font-size: 1.5rem; 
+        }
+        .detail-row { 
+            display: flex; 
+            justify-content: space-between; 
+            padding: 8px 0; 
+            border-bottom: 1px dashed var(--border-color); 
+        }
+        .modal-description { 
+            margin-top: 20px; 
+            padding: 15px; 
+            background-color: var(--bg-dark); 
+            border-radius: 8px; 
+        }
+        .close-button { 
+            display: block; 
+            width: 100%; 
+            padding: 10px; 
+            margin-top: 30px; 
+            background-color: var(--accent-blue); 
+            color: white; 
+            border: none; 
+            border-radius: 8px; 
+            cursor: pointer; 
+        }
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: scale(0.9); } 
+            to { opacity: 1; transform: scale(1); } 
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">

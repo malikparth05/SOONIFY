@@ -1,0 +1,35 @@
+<%- include('partials/head') %>
+<%- include('partials/sidebar', { currentPage: 'schedule' }) %>
+
+<main class="main-content">
+    
+    <%- include('partials/header-tabs', { currentPage: 'schedule' }) %>
+
+    <div class="search-and-filter">
+        <div class="search-bar">
+            <span class="material-icons">search</span>
+            <input id="search-input" type="text" placeholder="Search scheduled events...">
+        </div>
+        <div class="filter-controls">
+            <select id="category-filter">
+                <option value="all">All Categories</option>
+                <option value="work">Work</option>
+                <option value="personal">Personal</option>
+                <option value="study">Study</option>
+                <option value="health">Health</option>
+            </select>
+            <select id="sort-select">
+                <option value="date-asc">Closest Date First</option>
+                <option value="date-desc">Farthest Date First</option>
+                <option value="priority-desc">High Priority First</option>
+                <option value="priority-asc">Low Priority First</option>
+            </select>
+        </div>
+    </div>
+
+    <h2>Scheduled Events</h2>
+    <div class="event-grid" id="event-grid"></div>
+</main>
+
+<%- include('partials/modal') %>
+<%- include('partials/footer', { currentPage: 'schedule' }) %>

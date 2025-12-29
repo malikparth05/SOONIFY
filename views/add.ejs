@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Event - Soonify</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+   <style>
+        /* Base styles using the Soonify Dashboard Theme */
+        :root {
+            --bg-dark: #0D1117;
+            --sidebar-bg: #161B22; /* Used for header and inputs */
+            --card-bg: #21262D;
+            --border-color: #30363D;
+            --text-primary: #E6EDF3;
+            --text-secondary: #8B949E;
+            --accent-blue: #58A6FF;
+            --accent-blue-hover: #388BFD;
+            --border-radius: 8px;
+            --card-horizontal-padding: 30px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark); /* Changed to match dashboard */
+            min-height: 100vh;
+            color: var(--text-primary);
+        }
+
+        /* -------------------------------------- */
+        /* MODAL OVERLAY & CARD */
+        /* -------------------------------------- */
+        .modal-overlay {
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); 
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            z-index: 1000; 
+            padding: 20px; 
+            box-sizing: border-box;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 650px; 
+            position: relative;
+            overflow: hidden; 
+            padding: 30px var(--card-horizontal-padding);
+            padding-top: 0; 
+            max-height: 95vh; 
+            overflow-y: auto; 
+        }
+        
+        /* -------------------------------------- */
+        /* HEADER */
+        /* -------------------------------------- */
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--sidebar-bg);
+            margin-left: calc(-1 * var(--card-horizontal-padding)); 
+            margin-right: calc(-1 * var(--card-horizontal-padding));
+            padding: 12px var(--card-horizontal-padding); 
+            width: auto;
+            margin-bottom: 30px; 
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex; 
+            align-items: center;
+            gap: 12px; 
+        }
+
+        .logo-image {
+            height: 60px;
+            width: 60px;
+            object-fit: contain;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .username {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 2px solid var(--border-color);
+        }
+
+        /* Main Title */
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        
+        /* -------------------------------------- */
+        /* FORM STYLES */
+        /* -------------------------------------- */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        input[type="text"],
+        input[type="date"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            background-color: var(--sidebar-bg);
+            color: var(--text-primary);
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: all 0.2s ease;
+            font-family: inherit; 
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: var(--text-secondary);
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 2px rgba(88, 166, 255, 0.2);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 18px;
+            padding-right: 40px;
+        }
+
+        /* -------------------------------------- */
+        /* BUTTONS */
+        /* -------------------------------------- */
+        .button-group {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 30px;
+            grid-column: 1 / -1; /* Make it span full width in the grid */
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+        }
+
+        .btn-cancel {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color); 
+            color: var(--text-secondary);
+        }
+
+        .btn-cancel:hover {
+            border-color: var(--text-primary); 
+            color: var(--text-primary);
+        }
+
+        .btn-save {
+            background-color: var(--accent-blue);
+            color: white;
+            border: 1px solid var(--accent-blue);
+        }
+
+        .btn-save:hover {
+            background-color: var(--accent-blue-hover);
+            border-color: var(--accent-blue-hover);
+        }
+
+        /* -------------------------------------- */
+        /* RESPONSIVE ADJUSTMENTS */
+        /* -------------------------------------- */
+        @media (max-width: 650px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .card {
+                padding: 20px;
+                padding-top: 0; 
+            }
+            h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="modal-overlay">
+        <div class="card">
+            <header class="card-header">
+                <span class="logo">
+                    <img src="/images/soonify.png" alt="Soonify Logo" class="logo-image">
+                    Soonify
+                </span>
+                <div class="user-info">
+                    <span class="username">Aahana</span>
+                    <img src="https://api.dicebear.com/7.x/pixel-art/svg?seed=Aahana" alt="User Avatar" class="avatar">
+                </div>
+            </header>
+            <h1>Add New Event</h1>
+            <form>
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="event-name">Event Name</label>
+                        <input type="text" id="event-name" placeholder="e.g., Anisha's Birthday">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="description">Description (Optional)</label>
+                        <textarea id="description" placeholder="Add more details about your event..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date">
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Time</label>
+                        <input type="text" id="time" placeholder="e.g., 11:30 AM">
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category">
+                            <option value="personal">Personal</option>
+                            <option value="work">Work</option>
+                            <option value="study">Study</option>
+                            <option value="health">Health</option>
+                        </select>
+                    </div>
+                     <div class="form-group">
+                        <label for="priority">Priority</label>
+                        <select id="priority">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <div class="button-group">
+                        <button type="button" class="btn btn-cancel">Cancel</button>
+                        <button type="button" class="btn btn-save">Save Event</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="/js/add.js"></script>
+</body>
+</html>
